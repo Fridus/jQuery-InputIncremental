@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery - inputIncremental</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.ba-throttle-debounce.min.js"></script>
+<script type="text/javascript" src="js/jquery.inputIncremental.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('.inc').inputIncremental();
+  });
+</script>
+</head>
+<body>
+    <div class="container">
+
+      <div class="page-header">
+        <h1>jQuery - inputIncremental</h1>
+      </div>
+
+      <input type="text" class="inc" value="0"/>
+      <input type="text" data-theme="blueTheme" class="inc" />
+      <input type="text" data-theme="greenTheme" class="inc"/>
+    </div>
+</body>
+</html>
