@@ -5,14 +5,9 @@
  * Functions
  */
 /*
-@mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px){
-  @mixin createTheme(lighten($themeColor, 22%), $themeColor, lighten($themeColor, 28%), darken($themeColor, 30%), $boxShadowPosition $themeColor);
-}
-*/
-/*
  * Css
  */
-/* line 79, ../../scss/style.scss */
+/* line 82, ../../scss/style.scss */
 .inputIncremental {
   display: inline-block;
   position: relative;
@@ -34,11 +29,11 @@
 .inputIncremental:after {
   clear: both;
 }
-/* line 87, ../../scss/style.scss */
+/* line 90, ../../scss/style.scss */
 .inputIncremental > input, .inputIncremental > .incrementalButtonBox {
   float: left;
 }
-/* line 91, ../../scss/style.scss */
+/* line 94, ../../scss/style.scss */
 .inputIncremental > input {
   -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0);
   -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0);
@@ -58,11 +53,11 @@
   padding: 3px 5px;
   border-right: none;
 }
-/* line 99, ../../scss/style.scss */
+/* line 102, ../../scss/style.scss */
 .inputIncremental > input:focus, .inputIncremental > input.focus {
   outline: none;
 }
-/* line 104, ../../scss/style.scss */
+/* line 107, ../../scss/style.scss */
 .inputIncremental .incrementalButtonBox {
   position: absolute;
   top: 0;
@@ -72,7 +67,7 @@
   border-radius: 0 3px 3px 0;
   border-left: none;
 }
-/* line 114, ../../scss/style.scss */
+/* line 117, ../../scss/style.scss */
 .inputIncremental a {
   display: block;
   height: 50%;
@@ -84,12 +79,12 @@
   -o-transition: all 0s;
   transition: all 0.2s;
 }
-/* line 122, ../../scss/style.scss */
+/* line 125, ../../scss/style.scss */
 .inputIncremental a:after {
   after: ' ';
   content: '';
 }
-/* line 127, ../../scss/style.scss */
+/* line 130, ../../scss/style.scss */
 .inputIncremental a > .after, .inputIncremental a:after {
   width: 6px;
   height: 3px;
@@ -108,19 +103,19 @@
   -o-transition: all 0s;
   transition: all 0.6s;
 }
-/* line 143, ../../scss/style.scss */
+/* line 146, ../../scss/style.scss */
 .inputIncremental a.increment {
   margin-bottom: 1px;
 }
-/* line 145, ../../scss/style.scss */
+/* line 148, ../../scss/style.scss */
 .inputIncremental a.increment:hover, .inputIncremental a.increment.hover {
   background-color: rgba(255, 255, 255, 0);
 }
-/* line 154, ../../scss/style.scss */
+/* line 157, ../../scss/style.scss */
 .inputIncremental a.decrement > .after, .inputIncremental a.decrement:after {
   background-position: 0 -3px;
 }
-/* line 157, ../../scss/style.scss */
+/* line 160, ../../scss/style.scss */
 .inputIncremental a.decrement:hover, .inputIncremental a.decrement.hover {
   background-color: rgba(255, 255, 255, 0);
 }
@@ -183,4 +178,46 @@
   background-image: -o-linear-gradient(top, #bad190, #7ca743 50%, #91bb49);
   background-image: linear-gradient(top, #bad190, #7ca743 50%, #91bb49);
   border: 1px solid #819b68;
+}
+
+/* line 54, ../../scss/style.scss */
+.orangeTheme.focus {
+  -webkit-box-shadow: 1px 1px 6px #af420e;
+  -moz-box-shadow: 1px 1px 6px #af420e;
+  box-shadow: 1px 1px 6px #af420e;
+}
+/* line 58, ../../scss/style.scss */
+.orangeTheme input {
+  border: 1px solid #af420e;
+}
+/* line 62, ../../scss/style.scss */
+.orangeTheme .incrementalButtonBox {
+  background-color: #46a6db;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ead66e), color-stop(50%, #d88316), color-stop(100%, #eae56e));
+  background-image: -webkit-linear-gradient(top, #ead66e, #d88316 50%, #eae56e);
+  background-image: -moz-linear-gradient(top, #ead66e, #d88316 50%, #eae56e);
+  background-image: -o-linear-gradient(top, #ead66e, #d88316 50%, #eae56e);
+  background-image: linear-gradient(top, #ead66e, #d88316 50%, #eae56e);
+  border: 1px solid #af420e;
+}
+
+/* line 54, ../../scss/style.scss */
+.redTheme.focus {
+  -webkit-box-shadow: 0 0 6px red;
+  -moz-box-shadow: 0 0 6px red;
+  box-shadow: 0 0 6px red;
+}
+/* line 58, ../../scss/style.scss */
+.redTheme input {
+  border: 1px solid #660000;
+}
+/* line 62, ../../scss/style.scss */
+.redTheme .incrementalButtonBox {
+  background-color: #46a6db;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ff7070), color-stop(50%, #ff0000), color-stop(100%, #ff8f8f));
+  background-image: -webkit-linear-gradient(top, #ff7070, #ff0000 50%, #ff8f8f);
+  background-image: -moz-linear-gradient(top, #ff7070, #ff0000 50%, #ff8f8f);
+  background-image: -o-linear-gradient(top, #ff7070, #ff0000 50%, #ff8f8f);
+  background-image: linear-gradient(top, #ff7070, #ff0000 50%, #ff8f8f);
+  border: 1px solid #660000;
 }

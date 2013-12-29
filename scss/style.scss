@@ -66,11 +66,14 @@
   }
 }
 
-/*
 @mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px){
-  @mixin createTheme(lighten($themeColor, 22%), $themeColor, lighten($themeColor, 28%), darken($themeColor, 30%), $boxShadowPosition $themeColor);
+  $gradient1: lighten($themeColor, 22%);
+  $gradient3: lighten($themeColor, 28%);
+  $border_color: darken($themeColor, 30%);
+  $boxShadow: $boxShadowPosition $themeColor;
+  @include createTheme($gradient1, $themeColor, $gradient3, $border_color, $boxShadow);
 }
-*/
+
 
 
 /*
