@@ -1,94 +1,77 @@
-/* Css for Input Incremental */
-
 @import "lib/_mixins";
 
-/*
- * Css
- */
 .inputIncremental {
-  display: inline-block;
-  position: relative;
+  //scopped vars
+  $incremental-button-box-size: 18px;
+
   @extend %clearfix;
   border-radius: 3px;
-  $incrementalButtonBox_size: 18px;
-  padding-right: $incrementalButtonBox_size;
+  display: inline-block;
+  padding-right: $incremental-button-box-size;
+  position: relative;
 
-  > input, > .incrementalButtonBox {
-    float: left;
-  }
+  > input, > .incrementalButtonBox { float: left; }
 
   > input {
-    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.3);
-    text-align: right;
     border-radius: 3px 0 0 3px;
-    padding : 3px 5px;
     border-right: none;
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.3);
     margin: 0;
+    padding : 3px 5px;
+    text-align: right;
 
-    &:focus, &.focus {
-      outline: none;
-    }
+    &:focus, &.focus { outline: none; }
   }
 
   .incrementalButtonBox {
-    position: absolute;
-    top:0;
-    bottom:0;
-    right: 0;
-    width: $incrementalButtonBox_size;
-    border-radius: 0 3px 3px 0;
     border-left: none;
+    border-radius: 0 3px 3px 0;
+    bottom:0;
+    position: absolute;
+    right: 0;
+    top:0;
+    width: $incremental-button-box-size;
   }
 
   a {
+    @include transition(all .6s);
+    color: #333;
     display: block;
     height: 50%;
-    text-align: center;
-    color: #333;
     position: relative;
-    @include transition(all .2s);
+    text-align: center;
 
     &:after {
-      after: ' ';
+      border-style: solid;
+      border-width: 0 3px 3px 3px;
+      border-color: transparent transparent #fff transparent;
       content: '';
-    }
-
-    > .after, &:after {
-      width: 6px;
-      height: 3px;
-      background: url('../images/buttonIcons-white.png');
-      background-repeat: no-repeat;
-      background-position: 0 0;
+      height: 0;
+      left: 50%;
+      margin-top: -1.5px;
+      margin-left: -3px;
       position: absolute;
-      top:0;
-      bottom:0;
-      left:0;
-      right:0;
-      margin: 0 auto;
-      margin-top: 4px;
+      top: 50%;
       @include transition(all .6s);
+      width: 0;
     }
 
     &.increment {
       margin-bottom: 1px;
+
       &:hover, &.hover {
         background-color: rgba(255,255,255, 0.2);
-        > .after, &:after {
-          //margin-top: 3px;
-        }
       }
     }
 
     &.decrement {
-      > .after, &:after {
-        background-position: 0 -3px;
+
+      &:after {
+        border-width: 3px 3px 0 3px;
+        border-color: #fff transparent transparent transparent;
       }
-      &:hover, &.hover {
-        background-color: rgba(255,255,255, 0.25);
-        > .after, &:after {
-          //margin-top: 5px;
-        }
-      }
+
+      &:hover, &.hover { background-color: rgba(255,255,255, 0.25); }
     }
   }
 
