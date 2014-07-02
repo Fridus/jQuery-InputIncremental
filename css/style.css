@@ -1,28 +1,22 @@
 /* Css for Input Incremental */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000310}}
 .inputIncremental {
   *zoom: 1; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000314}}
   .inputIncremental:before, .inputIncremental:after {
     display: table;
     content: ""; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000319}}
   .inputIncremental:after {
     clear: both; }
 
 /*
  * Css
  */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\000038}}
 .inputIncremental {
   display: inline-block;
   position: relative;
   border-radius: 3px;
   padding-right: 18px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000316}}
   .inputIncremental > input, .inputIncremental > .incrementalButtonBox {
     float: left; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000320}}
   .inputIncremental > input {
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3);
     text-align: right;
@@ -30,10 +24,8 @@
     padding: 3px 5px;
     border-right: none;
     margin: 0; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000328}}
     .inputIncremental > input:focus, .inputIncremental > input.focus {
       outline: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000333}}
   .inputIncremental .incrementalButtonBox {
     position: absolute;
     top: 0;
@@ -42,7 +34,6 @@
     width: 18px;
     border-radius: 0 3px 3px 0;
     border-left: none; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000343}}
   .inputIncremental a {
     display: block;
     height: 50%;
@@ -54,11 +45,9 @@
     -ms-transition: all 0.2s;
     -o-transition: all 0.2s;
     transition: all 0.2s; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000351}}
     .inputIncremental a:after {
       after: ' ';
       content: ''; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000356}}
     .inputIncremental a > .after, .inputIncremental a:after {
       width: 6px;
       height: 3px;
@@ -77,61 +66,45 @@
       -ms-transition: all 0.6s;
       -o-transition: all 0.6s;
       transition: all 0.6s; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000372}}
     .inputIncremental a.increment {
       margin-bottom: 1px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000374}}
       .inputIncremental a.increment:hover, .inputIncremental a.increment.hover {
         background-color: rgba(255, 255, 255, 0.2); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000383}}
     .inputIncremental a.decrement > .after, .inputIncremental a.decrement:after {
       background-position: 0 -3px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/style\.scss}line{font-family:\0000386}}
     .inputIncremental a.decrement:hover, .inputIncremental a.decrement.hover {
       background-color: rgba(255, 255, 255, 0.25); }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000364}}
   .inputIncremental.focus {
     box-shadow: 1px 1px 6px #666666; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000368}}
   .inputIncremental input {
     border: 1px solid #666666; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000372}}
   .inputIncremental .incrementalButtonBox {
     background-color: gainsboro;
     background-image: -webkit-linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
     background-image: linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
     border: 1px solid #666666; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000364}}
   .inputIncremental.blueTheme.focus {
     box-shadow: 0 0 3px #5c98dc; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000368}}
   .inputIncremental.blueTheme input {
     border: 1px solid #2b81b9; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000372}}
   .inputIncremental.blueTheme .incrementalButtonBox {
     background-color: #6ec3ea;
     background-image: -webkit-linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
     background-image: linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
     border: 1px solid #2b81b9; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000364}}
   .inputIncremental.greenTheme.focus {
     box-shadow: 0px 0px 6px #7ca743; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000368}}
   .inputIncremental.greenTheme input {
     border: 1px solid #819b68; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000372}}
   .inputIncremental.greenTheme .incrementalButtonBox {
     background-color: #bad190;
     background-image: -webkit-linear-gradient(#bad190, #7ca743 50%, #91bb49);
     background-image: linear-gradient(#bad190, #7ca743 50%, #91bb49);
     border: 1px solid #819b68; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000364}}
   .inputIncremental.orangeTheme.focus {
     box-shadow: 0 0 6px #ffb700; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000368}}
   .inputIncremental.orangeTheme input {
     border: 1px solid #664900; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/florentdetry\/Dev\/jQuery-InputIncremental\/scss\/lib\/_mixins\.scss}line{font-family:\0000372}}
   .inputIncremental.orangeTheme .incrementalButtonBox {
     background-color: #ffd770;
     background-image: -webkit-linear-gradient(#ffd770, #ffb700 50%, #ffdf8f);

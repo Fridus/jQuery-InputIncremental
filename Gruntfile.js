@@ -11,7 +11,12 @@ module.exports = function (grunt) {
     files: {
       css: 'style.css',
       cssmin: 'style.min.css',
-      inputIncremental: 'jquery.inputIncremental.min.js'
+      baThrottleDebounce:     'jquery.ba-throttle-debounce.js',
+      baThrottleDebounce_min: 'jquery.ba-throttle-debounce.min.js',
+      inputIncremental:       'jquery.inputIncremental.js',
+      inputIncremental_min:   'jquery.inputIncremental.min.js',
+      inputIncremental_full:      'jquery.inputIncremental.full.js',
+      inputIncremental_full_min:  'jquery.inputIncremental.full.min.js'
     }
   };
 
@@ -55,7 +60,9 @@ module.exports = function (grunt) {
         '<%= conf.css %>'
       ],
       js: [
-        '<%= conf.files.inputIncremental %>'
+        '<%= conf.files.inputIncremental_min %>',
+        '<%= conf.files.inputIncremental_full %>',
+        '<%= conf.files.inputIncremental_full_min %>'
       ],
       dist: [
         '<%= clean.css %>',
@@ -70,8 +77,31 @@ module.exports = function (grunt) {
       },
       dist: {
         files: {
-          'css/style.min.css': [
-            'css/style.css'
+          '<%= conf.css %>/<%= conf.files.cssmin %>': [
+            '<%= conf.css %>/<%= conf.files.css %>'
+          ]
+        }
+      }
+    },
+    concat: {
+      dist: {
+        files: {
+          '<%= conf.files.inputIncremental_full %>': [
+            '<%= conf.files.baThrottleDebounce %>',
+            '<%= conf.files.inputIncremental %>'
+          ]
+        },
+      },
+    },
+    uglify: {
+      dist: {
+        files: {
+          '<%= conf.files.inputIncremental_min %>': [
+            '<%= conf.files.inputIncremental %>'
+          ],
+          '<%= conf.files.inputIncremental_full_min %>': [
+            '<%= conf.files.baThrottleDebounce %>',
+            '<%= conf.files.inputIncremental %>'
           ]
         }
       }
@@ -96,6 +126,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build:js', [
     'clean:js',
     'jshint',
+    'concat',
+    'uglify'
   ]);
 
   grunt.registerTask('build', [
