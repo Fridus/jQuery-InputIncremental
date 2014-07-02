@@ -1,0 +1,28 @@
+{
+  "name": "jQuery-InputIncremental",
+  "version": "0.0.1",
+  "description": "jQuery plugin. You can increment or decrement with buttons or keyboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fridus/jQuery-InputIncremental.git"
+  },
+  "keywords": [
+    "jQuery",
+    "input",
+    "increment"
+  ],
+  "author": "Florent Detry <florent@fdetry.be> (http://fdetry.be/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fridus/jQuery-InputIncremental/issues"
+  },
+  "homepage": "https://github.com/Fridus/jQuery-InputIncremental",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "matchdep": "^0.3.0"
+  }
+}

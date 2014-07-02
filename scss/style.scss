@@ -1,80 +1,6 @@
 /* Css for Input Incremental */
 
-/*
- * Functions
- */
-@mixin _clearfix() {
-  *zoom: 1;
-
-  &:before,
-  &:after {
-    display: table;
-    content: "";
-  }
-
-  &:after {
-    clear: both;
-  }
-}
-
-@mixin noBorderRadiusLeft() {
-  -moz-border-radius-topleft: 0 !important;
-  -moz-border-radius-bottomleft: 0 !important;
-
-  -webkit-border-top-left-radius: 0 !important;
-  -webkit-border-bottom-left-radius: 0 !important;
-
-  -o-border-radius-topleft: 0 !important;
-  -o-border-radius-bottomleft: 0 !important;
-
-  -ms-border-radius-topleft: 0 !important;
-  -ms-border-radius-bottomleft: 0 !important;
-
-  border-radius-topleft: 0 !important;
-  border-radius-bottomleft: 0 !important;
-}
-@mixin noBorderRadiusRight() {
-  -moz-border-radius-topright: 0 !important;
-  -moz-border-radius-bottomright: 0 !important;
-
-  -webkit-border-top-right-radius: 0 !important;
-  -webkit-border-bottom-right-radius: 0 !important;
-
-  -o-border-radius-topright: 0 !important;
-  -o-border-radius-bottomright: 0 !important;
-
-  -ms-border-radius-topright: 0 !important;
-  -ms-border-radius-bottomright: 0 !important;
-
-  border-radius-topright: 0 !important;
-  border-radius-bottomright: 0 !important;
-}
-
-@mixin createTheme($gradient1: #DCDCDC, $gradient2: #9C9C9C, $gradient3: #DBDBDB, $border_color:#666, $boxShadow: 1px 1px 6px #666) {
-   &.focus {
-    @include box-shadow($boxShadow);
-   }
-
-   input {
-    border: 1px solid $border_color;
-  }
-
-  .incrementalButtonBox {
-    background-color: #46a6db;
-    @include background-image(linear-gradient(top, $gradient1, $gradient2 50%, $gradient3));
-    border: 1px solid $border_color;
-  }
-}
-
-@mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px){
-  $gradient1: lighten($themeColor, 22%);
-  $gradient3: lighten($themeColor, 28%);
-  $border_color: darken($themeColor, 30%);
-  $boxShadow: $boxShadowPosition $themeColor;
-  @include createTheme($gradient1, $themeColor, $gradient3, $border_color, $boxShadow);
-}
-
-
+@import "lib/_mixins";
 
 /*
  * Css
@@ -82,7 +8,7 @@
 .inputIncremental {
   display: inline-block;
   position: relative;
-  @include _clearfix();
+  @extend %clearfix;
   border-radius: 3px;
   $incrementalButtonBox_size: 18px;
   padding-right: $incrementalButtonBox_size;
@@ -92,12 +18,12 @@
   }
 
   > input {
-    @include box-shadow(inset 0px 1px 3px rgba(0,0,0,0.3));
-    @include noBorderRadiusRight();
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.3);
     text-align: right;
     border-radius: 3px 0 0 3px;
     padding : 3px 5px;
     border-right: none;
+    margin: 0;
 
     &:focus, &.focus {
       outline: none;
@@ -130,7 +56,7 @@
     > .after, &:after {
       width: 6px;
       height: 3px;
-      background: inline-image('buttonIcons-white.png');
+      background: url('../images/buttonIcons-white.png');
       background-repeat: no-repeat;
       background-position: 0 0;
       position: absolute;
@@ -175,9 +101,7 @@
   &.greenTheme {
     @include createTheme(#BAD190, #7CA743, #91BB49, #819B68, 0px 0px 6px #7CA743);
   }
-  /*
-    &.orangeTheme {
-      @include createThemeByColor(#ffb700);
-    }
-  */
+  &.orangeTheme {
+    @include createThemeByColor(#ffb700);
+  }
 }

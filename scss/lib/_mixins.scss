@@ -1,0 +1,84 @@
+
+@mixin transition($transition-properties) {
+    -webkit-transition: $transition-properties;
+    -moz-transition: $transition-properties;
+    -ms-transition: $transition-properties;
+    -o-transition: $transition-properties;
+    transition: $transition-properties;
+}
+
+%clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin linear-gradient($pos, $G1, $G2: null,
+                       $G3: null, $G4: null,
+                       $G5: null, $G6: null,
+                       $G7: null, $G8: null,
+                       $G9: null, $G10: null,
+                       $fallback: null) {
+  // Detect what type of value exists in $pos
+  $pos-type: type-of(nth($pos, 1));
+  $pos-spec: null;
+  $pos-degree: null;
+
+  // If $pos is missing from mixin, reassign vars and add default position
+  @if ($pos-type == color) or (nth($pos, 1) == "transparent")  {
+    $G10: $G9; $G9: $G8; $G8: $G7; $G7: $G6; $G6: $G5;
+     $G5: $G4; $G4: $G3; $G3: $G2; $G2: $G1; $G1: $pos;
+     $pos: null;
+  }
+
+  @if $pos {
+    $positions: _linear-positions-parser($pos);
+    $pos-degree: nth($positions, 1);
+    $pos-spec:   nth($positions, 2);
+  }
+
+  $full: $G1, $G2, $G3, $G4, $G5, $G6, $G7, $G8, $G9, $G10;
+
+  // Set $G1 as the default fallback color
+  $fallback-color: nth($G1, 1);
+
+  // If $fallback is a color use that color as the fallback color
+  @if (type-of($fallback) == color) or ($fallback == "transparent") {
+    $fallback-color: $fallback;
+  }
+
+  background-color: $fallback-color;
+  background-image: -webkit-linear-gradient($pos-degree $full); // Safari 5.1+, Chrome
+  background-image: unquote("linear-gradient(#{$pos-spec}#{$full})");
+}
+
+@mixin createTheme($gradient1: #DCDCDC, $gradient2: #9C9C9C, $gradient3: #DBDBDB, $border_color:#666, $boxShadow: 1px 1px 6px #666) {
+   &.focus {
+    box-shadow: $boxShadow;
+   }
+
+   input {
+    border: 1px solid $border_color;
+  }
+
+  .incrementalButtonBox {
+    @include linear-gradient($gradient1, $gradient2 50%, $gradient3);
+    border: 1px solid $border_color;
+  }
+}
+
+@mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px){
+  $gradient1: lighten($themeColor, 22%);
+  $gradient3: lighten($themeColor, 28%);
+  $border_color: darken($themeColor, 30%);
+  $boxShadow: $boxShadowPosition $themeColor;
+  @include createTheme($gradient1, $themeColor, $gradient3, $border_color, $boxShadow);
+}
