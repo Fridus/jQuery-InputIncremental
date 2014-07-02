@@ -8,6 +8,7 @@ module.exports = function (grunt) {
   var conf = {
     sass: 'scss',
     css: 'css',
+    js: 'js',
     files: {
       css: 'style.css',
       cssmin: 'style.min.css',
@@ -29,7 +30,7 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        'jquery.inputIncremental.js'
+        '<%= conf.js %>/jquery.inputIncremental.js'
       ]
     },
     sass: {
@@ -60,9 +61,9 @@ module.exports = function (grunt) {
         '<%= conf.css %>'
       ],
       js: [
-        '<%= conf.files.inputIncremental_min %>',
-        '<%= conf.files.inputIncremental_full %>',
-        '<%= conf.files.inputIncremental_full_min %>'
+        '<%= conf.js %>/<%= conf.files.inputIncremental_min %>',
+        '<%= conf.js %>/<%= conf.files.inputIncremental_full %>',
+        '<%= conf.js %>/<%= conf.files.inputIncremental_full_min %>'
       ],
       dist: [
         '<%= clean.css %>',
@@ -86,9 +87,9 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         files: {
-          '<%= conf.files.inputIncremental_full %>': [
-            '<%= conf.files.baThrottleDebounce %>',
-            '<%= conf.files.inputIncremental %>'
+          '<%= conf.js %>/<%= conf.files.inputIncremental_full %>': [
+            '<%= conf.js %>/<%= conf.files.baThrottleDebounce %>',
+            '<%= conf.js %>/<%= conf.files.inputIncremental %>'
           ]
         },
       },
@@ -96,12 +97,12 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= conf.files.inputIncremental_min %>': [
-            '<%= conf.files.inputIncremental %>'
+          '<%= conf.js %>/<%= conf.files.inputIncremental_min %>': [
+            '<%= conf.js %>/<%= conf.files.inputIncremental %>'
           ],
-          '<%= conf.files.inputIncremental_full_min %>': [
-            '<%= conf.files.baThrottleDebounce %>',
-            '<%= conf.files.inputIncremental %>'
+          '<%= conf.js %>/<%= conf.files.inputIncremental_full_min %>': [
+            '<%= conf.js %>/<%= conf.files.baThrottleDebounce %>',
+            '<%= conf.js %>/<%= conf.files.inputIncremental %>'
           ]
         }
       }

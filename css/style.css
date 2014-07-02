@@ -1,5 +1,3 @@
-/* Basic helpers
-   ========================================================================== */
 .inputIncremental {
   *zoom: 1; }
   .inputIncremental:before, .inputIncremental:after {
@@ -8,10 +6,6 @@
   .inputIncremental:after {
     clear: both; }
 
-/* Bourbon.io
-   ========================================================================== */
-/* InputIncremental skin
-   ========================================================================== */
 .inputIncremental {
   border-radius: 3px;
   display: inline-block;
@@ -37,13 +31,16 @@
     top: 0;
     width: 18px; }
   .inputIncremental a {
-    transition: all .2s;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    -ms-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s;
     color: #333;
     display: block;
     height: 50%;
     position: relative;
-    text-align: center;
-    transition: all .6s; }
+    text-align: center; }
     .inputIncremental a:after {
       border-style: solid;
       border-width: 0 3px 3px 3px;
@@ -55,7 +52,11 @@
       margin-left: -3px;
       position: absolute;
       top: 50%;
-      transition: all .6s;
+      -webkit-transition: all 0.6s;
+      -moz-transition: all 0.6s;
+      -ms-transition: all 0.6s;
+      -o-transition: all 0.6s;
+      transition: all 0.6s;
       width: 0; }
     .inputIncremental a.increment {
       margin-bottom: 1px; }
