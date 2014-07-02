@@ -21,6 +21,7 @@
   }
 }
 
+// http://bourbon.io/docs/#linear-gradient
 @mixin linear-gradient($pos, $G1, $G2: null,
                        $G3: null, $G4: null,
                        $G5: null, $G6: null,
@@ -60,7 +61,7 @@
   background-image: unquote("linear-gradient(#{$pos-spec}#{$full})");
 }
 
-@mixin createTheme($gradient1: #DCDCDC, $gradient2: #9C9C9C, $gradient3: #DBDBDB, $border_color:#666, $boxShadow: 1px 1px 6px #666) {
+@mixin createTheme($gradient1: #DCDCDC, $gradient2: #9C9C9C, $gradient3: #DBDBDB, $border_color:#666, $boxShadow: 1px 1px 6px #666, $arrowColor: #fff) {
    &.focus {
     box-shadow: $boxShadow;
    }
@@ -73,12 +74,22 @@
     @include linear-gradient($gradient1, $gradient2 50%, $gradient3);
     border: 1px solid $border_color;
   }
+
+  a {
+    &:after {
+      border-color: transparent transparent $arrowColor transparent;
+    }
+
+    &.decrement:after {
+      border-color: $arrowColor transparent transparent transparent;
+    }
+  }
 }
 
-@mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px){
+@mixin createThemeByColor($themeColor, $boxShadowPosition: 0 0 6px, $arrowColor: #fff){
   $gradient1: lighten($themeColor, 22%);
   $gradient3: lighten($themeColor, 28%);
   $border_color: darken($themeColor, 30%);
   $boxShadow: $boxShadowPosition $themeColor;
-  @include createTheme($gradient1, $themeColor, $gradient3, $border_color, $boxShadow);
+  @include createTheme($gradient1, $themeColor, $gradient3, $border_color, $boxShadow, $arrowColor);
 }

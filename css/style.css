@@ -76,6 +76,10 @@
     background-image: -webkit-linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
     background-image: linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
     border: 1px solid #666666; }
+  .inputIncremental a:after {
+    border-color: transparent transparent white transparent; }
+  .inputIncremental a.decrement:after {
+    border-color: white transparent transparent transparent; }
   .inputIncremental.blueTheme.focus {
     box-shadow: 0 0 3px #5c98dc; }
   .inputIncremental.blueTheme input {
@@ -85,6 +89,10 @@
     background-image: -webkit-linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
     background-image: linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
     border: 1px solid #2b81b9; }
+  .inputIncremental.blueTheme a:after {
+    border-color: transparent transparent white transparent; }
+  .inputIncremental.blueTheme a.decrement:after {
+    border-color: white transparent transparent transparent; }
   .inputIncremental.greenTheme.focus {
     box-shadow: 0px 0px 6px #7ca743; }
   .inputIncremental.greenTheme input {
@@ -94,6 +102,10 @@
     background-image: -webkit-linear-gradient(#bad190, #7ca743 50%, #91bb49);
     background-image: linear-gradient(#bad190, #7ca743 50%, #91bb49);
     border: 1px solid #819b68; }
+  .inputIncremental.greenTheme a:after {
+    border-color: transparent transparent white transparent; }
+  .inputIncremental.greenTheme a.decrement:after {
+    border-color: white transparent transparent transparent; }
   .inputIncremental.orangeTheme.focus {
     box-shadow: 0 0 6px #ffb700; }
   .inputIncremental.orangeTheme input {
@@ -103,3 +115,7 @@
     background-image: -webkit-linear-gradient(#ffd770, #ffb700 50%, #ffdf8f);
     background-image: linear-gradient(#ffd770, #ffb700 50%, #ffdf8f);
     border: 1px solid #664900; }
+  .inputIncremental.orangeTheme a:after {
+    border-color: transparent transparent white transparent; }
+  .inputIncremental.orangeTheme a.decrement:after {
+    border-color: white transparent transparent transparent; }
