@@ -9,8 +9,11 @@ You can increment or decrement with buttons or keyboard
 ## Usage
 ```
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
 <script type="text/javascript" src="../jquery.ba-throttle-debounce.min.js"></script>
 <script type="text/javascript" src="../jquery.inputIncremental.js"></script>
+<!-- OR -->
+<script type="text/javascript" src="../jquery.inputIncremental.full.js"></script>
 ```
 ```
 $(function(){
@@ -18,28 +21,24 @@ $(function(){
     $('.myInputs2').inputIncremental({minVal: 1});
 });
 ```
-[Examples](http://fridus.github.io/jQuery-InputIncremental)
+[Demo](http://fridus.github.io/jQuery-InputIncremental)
 
 ## Dependencies
 
 #### Javascript
 
 - jQuery
-- `jquery.ba-throttle-debounce`
-
-#### CSS
-
-- `@import "compass/css3";`
+- `jquery.ba-throttle-debounce` (included in full version)
 
 ## Options
 
-- value: number incrementation (default 1)
-- minVal (default 0)
-- maxVal (default null)
-- throttle (default 1000)
-- autocomplete (default false)
+- `value`: number incrementation (default 1)
+- `minVal` (default 0)
+- `maxVal` (default null)
+- `throttle` (default 1000)
+- `autocomplete` (default false)
 
-## Themes with compass
+## Themes with sass or compass
 
 #### Default themes
 
@@ -53,7 +52,6 @@ $(function(){
 
 main.scss
 ```
-@import "compass/css3";
 @import "inputIncremental/_style";
 
 .orangeTheme { // name of theme
