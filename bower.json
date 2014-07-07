@@ -1,0 +1,20 @@
+{
+  "name": "jquery-inputincremental",
+  "version": "0.1.1",
+  "main": "js/jquery.inputIncremental.full.js",
+  "ignore": [
+    "**/.*",
+    "Gruntfile.js",
+    "package.json",
+    "*.md",
+    "node_modules",
+    "examples"
+  ],
+  "keywords": [
+    "jquery",
+    "javascript",
+    "input",
+    "increment"
+  ],
+  "license": "ISC"
+}
