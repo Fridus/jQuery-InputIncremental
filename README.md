@@ -23,6 +23,11 @@ $(function(){
 ```
 [Demo](http://fridus.github.io/jQuery-InputIncremental)
 
+## Install with bower
+```
+bower install jquery-inputincremental
+```
+
 ## Dependencies
 
 #### Javascript
