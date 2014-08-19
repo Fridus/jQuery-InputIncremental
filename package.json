@@ -1,6 +1,6 @@
 {
   "name": "jQuery-InputIncremental",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "jQuery plugin. You can increment or decrement with buttons or keyboard",
   "repository": {
     "type": "git",
