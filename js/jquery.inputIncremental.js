@@ -27,23 +27,31 @@ $.fn.inputIncremental = function(options){
       minVal: 0,
       maxVal: null,
       throttle: 1000,
-      autocomplete: false
+      autocomplete: false,
+      negative: false
     }, options);
 
     // Metadata
     var metadata = $inputs.data();
-    if(metadata.minval !== undefined) {
-      params.minVal = metadata.minval;
-    }
-    if(metadata.throttle !== undefined) {
-      params.throttle = metadata.throttle;
-    }
+    var keys = ['minVal', 'maxVal', 'value', 'throttle'];
+    keys.forEach(function(i_key) {
+      if(metadata[i_key] !== undefined) {
+        params[i_key] = metadata[i_key];
+      }
+    });
     if(metadata.theme !== undefined) {
       $inputContainer.addClass(metadata.theme);
+    }
+    if(metadata.negative !== undefined) {
+      params.negative = metadata.negative;
     }
 
     if(!params.autocomplete) {
       $inputs.attr('autocomplete', 'off');
+    }
+
+    if(params.negative && params.minVal >= 0) {
+      params.minVal = null;
     }
 
     var setInputValue = function (input, value) {
@@ -56,7 +64,7 @@ $.fn.inputIncremental = function(options){
         $input.data('inputIncremental-throttle', throttle);
       }
 
-      if(value < params.minVal) {
+      if(params.minVal !== null && value < params.minVal) {
         value = params.minVal;
       }
       if(params.maxVal && value > params.maxVal) {

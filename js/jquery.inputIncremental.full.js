@@ -275,30 +275,36 @@ $.fn.inputIncremental = function(options){
         )
     );
 
-    var defaultOptions = {
+    var params = $.extend({
       value: 1,
       minVal: 0,
       maxVal: null,
       throttle: 1000,
-      autocomplete: false
-    };
+      autocomplete: false,
+      negative: false
+    }, options);
 
-    var params = $.extend(defaultOptions, options);
-
-    // min val in data
+    // Metadata
     var metadata = $inputs.data();
-    if(metadata.minval !== undefined) {
-      params.minVal = metadata.minval;
-    }
-    if(metadata.throttle !== undefined) {
-      params.throttle = metadata.throttle;
-    }
+    var keys = ['minVal', 'maxVal', 'value', 'throttle'];
+    keys.forEach(function(i_key) {
+      if(metadata[i_key] !== undefined) {
+        params[i_key] = metadata[i_key];
+      }
+    });
     if(metadata.theme !== undefined) {
       $inputContainer.addClass(metadata.theme);
+    }
+    if(metadata.negative !== undefined) {
+      params.negative = metadata.negative;
     }
 
     if(!params.autocomplete) {
       $inputs.attr('autocomplete', 'off');
+    }
+
+    if(params.negative && params.minVal >= 0) {
+      params.minVal = null;
     }
 
     var setInputValue = function (input, value) {
@@ -311,7 +317,7 @@ $.fn.inputIncremental = function(options){
         $input.data('inputIncremental-throttle', throttle);
       }
 
-      if(value < params.minVal) {
+      if(params.minVal !== null && value < params.minVal) {
         value = params.minVal;
       }
       if(params.maxVal && value > params.maxVal) {
@@ -326,7 +332,6 @@ $.fn.inputIncremental = function(options){
       if( (e.which < 48 || e.which > 57 ) && e.which !== 8 && e.which !== 0 && e.which !== 44 && e.which !== 46 ) {
         e.preventDefault();
       }
-      setInputValue(this, $(this).val().replace(',', '.'));
     });
     $inputs.on('keydown', function(e) {
       var triggerClick = function($button) {
@@ -354,7 +359,7 @@ $.fn.inputIncremental = function(options){
       }
 
       var $input = $inputContainer.find('input'),
-        nb = $input.val();
+        nb = $input.val().replace(',', '.');
 
       if ( params.numberType === 'int') {
         nb = parseInt($input.val());
@@ -379,10 +384,12 @@ $.fn.inputIncremental = function(options){
 
     $inputs.on('focus', function(){
       $inputContainer.addClass('focus');
+      setInputValue(this, this.value.replace(',', '.'));
       setTimeout($.proxy(function(){
         this.select();
       },$inputs),10);
     }).on('blur', function(){
+      setInputValue(this, this.value.replace(',', '.'));
       $inputContainer.removeClass('focus');
       var $this = $(this),
         value = parseInt($this.val());
