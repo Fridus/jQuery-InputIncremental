@@ -18,6 +18,9 @@ module.exports = function (grunt) {
       inputIncremental_min:   'jquery.inputIncremental.min.js',
       inputIncremental_full:      'jquery.inputIncremental.full.js',
       inputIncremental_full_min:  'jquery.inputIncremental.full.min.js'
+    },
+    connect: {
+      port: 8000
     }
   };
 
@@ -104,6 +107,17 @@ module.exports = function (grunt) {
             '<%= conf.js %>/<%= conf.files.baThrottleDebounce %>',
             '<%= conf.js %>/<%= conf.files.inputIncremental %>'
           ]
+        }
+      }
+    },
+    connect: {
+      server: {
+        options: {
+          port: '<%= conf.connect.port %>',
+          hostname: '*',
+          keepalive: true,
+          debug: true,
+          open: 'http://localhost:<%= conf.connect.port %>/examples/demo.html'
         }
       }
     }
