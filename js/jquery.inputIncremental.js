@@ -26,14 +26,14 @@ $.fn.inputIncremental = function(options){
       value: 1,
       minVal: 0,
       maxVal: null,
-      throttle: 1000,
+      debounce: 1000,
       autocomplete: false,
       negative: false
     }, options);
 
     // Metadata
     var metadata = $inputs.data();
-    var keys = ['minVal', 'maxVal', 'value', 'throttle'];
+    var keys = ['minVal', 'maxVal', 'value', 'debounce'];
     keys.forEach(function(i_key) {
       if(metadata[i_key] !== undefined) {
         params[i_key] = metadata[i_key];
@@ -56,12 +56,17 @@ $.fn.inputIncremental = function(options){
 
     var setInputValue = function (input, value) {
       var $input = $(input);
-      var throttle = $input.data('inputIncremental-throttle');
-      if (!throttle) {
-        throttle = $.throttle(params.throttle, function() {
+      var debounce = $input.data('inputIncremental-debounce');
+      if (!debounce) {
+        if (params.throttle) {
+          console.log('WARN: `throttle` is deprecated. Use `debounce` instead.');
+          params.debounce = params.throttle;
+        }
+
+        debounce = $.debounce(params.debounce, function() {
           $input.trigger('change');
         });
-        $input.data('inputIncremental-throttle', throttle);
+        $input.data('inputIncremental-debounce', debounce);
       }
 
       if(params.minVal !== null && value < params.minVal) {
@@ -72,7 +77,7 @@ $.fn.inputIncremental = function(options){
       }
 
       $input.val(value);
-      throttle(value);
+      debounce(value);
     };
 
     $inputs.on('keypress', function(e) {
