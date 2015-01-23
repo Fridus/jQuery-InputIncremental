@@ -10,9 +10,9 @@ $.fn.inputIncremental = function(options){
   'use strict';
 
   return this.each(function() {
-    var $inputs = $(this);
-    $inputs.wrap('<span class="inputIncremental"/>');
-    var $inputContainer = $inputs.parent();
+    var $input = $(this);
+    $input.wrap('<span class="inputIncremental"/>');
+    var $inputContainer = $input.parent();
 
     $inputContainer.append(
       $('<div />').addClass('incrementalButtonBox').append(
@@ -33,7 +33,7 @@ $.fn.inputIncremental = function(options){
     }, options);
 
     // Metadata
-    var metadata = $inputs.data();
+    var metadata = $input.data();
     var keys = ['minVal', 'maxVal', 'value', 'debounce', 'integer'];
     keys.forEach(function(i_key) {
       if(metadata[i_key] !== undefined) {
@@ -48,15 +48,14 @@ $.fn.inputIncremental = function(options){
     }
 
     if(!params.autocomplete) {
-      $inputs.attr('autocomplete', 'off');
+      $input.attr('autocomplete', 'off');
     }
 
     if(params.negative && params.minVal >= 0) {
       params.minVal = null;
     }
 
-    var setInputValue = function (input, value) {
-      var $input = $(input);
+    var setInputValue = function (value) {
       var debounce = $input.data('inputIncremental-debounce');
       if (!debounce) {
         if (params.throttle) {
@@ -84,8 +83,6 @@ $.fn.inputIncremental = function(options){
     var checkValue = function (val) {
       var nb = val.replace(',', '.');
 
-      console.log(params.integer);
-
       if ( params.integer ) {
         nb = parseInt(nb);
       } else {
@@ -99,12 +96,19 @@ $.fn.inputIncremental = function(options){
       return nb;
     };
 
-    $inputs.on('keypress', function(e) {
-      if( (e.which < 48 || e.which > 57 ) && e.which !== 8 && e.which !== 0 && e.which !== 44 && e.which !== 46 ) {
+    $input.on('keypress', function(e) {
+      if(
+        (e.which < 48 || e.which > 57 ) && // 0-9
+        e.which !== 8 && // backspace
+        e.which !== 0 &&
+        e.which !== 44 && // ,
+        e.which !== 46 && // .
+        !(params.negative && e.which == 45) // -
+      ) {
         e.preventDefault();
       }
     });
-    $inputs.on('keydown', function(e) {
+    $input.on('keydown', function(e) {
       var triggerClick = function($button) {
         $button.addClass('hover')
              .trigger('click');
@@ -129,8 +133,7 @@ $.fn.inputIncremental = function(options){
         return;
       }
 
-      var $input = $inputContainer.find('input'),
-        nb = checkValue($input.val());
+      var nb = checkValue($input.val());
 
       if( $(this).hasClass('increment') ) {
         nb = nb + params.value;
@@ -139,19 +142,19 @@ $.fn.inputIncremental = function(options){
       }
 
       // round 2
-      setInputValue($input, Math.round(nb*100)/100);
+      setInputValue(Math.round(nb*100)/100);
       $input.focus();
     });
 
-    $inputs.on('focus', function(){
+    $input.on('focus', function(){
       $inputContainer.addClass('focus');
-      setInputValue(this, checkValue(this.value));
+      setInputValue(checkValue(this.value));
       setTimeout($.proxy(function(){
         this.select();
-      },$inputs),10);
+      },$input),10);
     }).on('blur', function(){
       $inputContainer.removeClass('focus');
-      setInputValue(this, checkValue(this.value));
+      setInputValue(checkValue(this.value));
     });
   });
 };
