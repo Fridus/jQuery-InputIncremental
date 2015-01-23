@@ -103,7 +103,7 @@ $.fn.inputIncremental = function(options){
         e.which !== 0 &&
         e.which !== 44 && // ,
         e.which !== 46 && // .
-        !(params.negative && e.which == 45) // -
+        !(params.negative && e.which === 45) // -
       ) {
         e.preventDefault();
       }

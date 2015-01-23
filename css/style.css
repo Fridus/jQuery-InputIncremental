@@ -68,44 +68,44 @@
     .inputIncremental a.decrement:hover, .inputIncremental a.decrement.hover {
       background-color: rgba(255, 255, 255, 0.25); }
   .inputIncremental.focus {
-    box-shadow: 1px 1px 6px #666666; }
+    box-shadow: 1px 1px 6px #666; }
   .inputIncremental input {
-    border: 1px solid #666666; }
+    border: 1px solid #666; }
   .inputIncremental .incrementalButtonBox {
-    background-color: gainsboro;
-    background-image: -webkit-linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
-    background-image: linear-gradient(gainsboro, #9c9c9c 50%, #dbdbdb);
-    border: 1px solid #666666; }
+    background-color: #DCDCDC;
+    background-image: -webkit-linear-gradient(#DCDCDC, #9C9C9C 50%, #DBDBDB);
+    background-image: linear-gradient(#DCDCDC, #9C9C9C 50%, #DBDBDB);
+    border: 1px solid #666; }
   .inputIncremental a:after {
-    border-color: transparent transparent white transparent; }
+    border-color: transparent transparent #fff transparent; }
   .inputIncremental a.decrement:after {
-    border-color: white transparent transparent transparent; }
+    border-color: #fff transparent transparent transparent; }
   .inputIncremental.blueTheme.focus {
-    box-shadow: 0 0 3px #5c98dc; }
+    box-shadow: 0 0 3px #5C98DC; }
   .inputIncremental.blueTheme input {
-    border: 1px solid #2b81b9; }
+    border: 1px solid #2B81B9; }
   .inputIncremental.blueTheme .incrementalButtonBox {
-    background-color: #6ec3ea;
-    background-image: -webkit-linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
-    background-image: linear-gradient(#6ec3ea, #2b81b9 50%, #6ec3ea);
-    border: 1px solid #2b81b9; }
+    background-color: #6EC3EA;
+    background-image: -webkit-linear-gradient(#6EC3EA, #2B81B9 50%, #6EC3EA);
+    background-image: linear-gradient(#6EC3EA, #2B81B9 50%, #6EC3EA);
+    border: 1px solid #2B81B9; }
   .inputIncremental.blueTheme a:after {
-    border-color: transparent transparent white transparent; }
+    border-color: transparent transparent #fff transparent; }
   .inputIncremental.blueTheme a.decrement:after {
-    border-color: white transparent transparent transparent; }
+    border-color: #fff transparent transparent transparent; }
   .inputIncremental.greenTheme.focus {
-    box-shadow: 0px 0px 6px #7ca743; }
+    box-shadow: 0px 0px 6px #7CA743; }
   .inputIncremental.greenTheme input {
-    border: 1px solid #819b68; }
+    border: 1px solid #819B68; }
   .inputIncremental.greenTheme .incrementalButtonBox {
-    background-color: #bad190;
-    background-image: -webkit-linear-gradient(#bad190, #7ca743 50%, #91bb49);
-    background-image: linear-gradient(#bad190, #7ca743 50%, #91bb49);
-    border: 1px solid #819b68; }
+    background-color: #BAD190;
+    background-image: -webkit-linear-gradient(#BAD190, #7CA743 50%, #91BB49);
+    background-image: linear-gradient(#BAD190, #7CA743 50%, #91BB49);
+    border: 1px solid #819B68; }
   .inputIncremental.greenTheme a:after {
-    border-color: transparent transparent white transparent; }
+    border-color: transparent transparent #fff transparent; }
   .inputIncremental.greenTheme a.decrement:after {
-    border-color: white transparent transparent transparent; }
+    border-color: #fff transparent transparent transparent; }
   .inputIncremental.orangeTheme.focus {
     box-shadow: 0 0 6px #ffb700; }
   .inputIncremental.orangeTheme input {
@@ -116,6 +116,8 @@
     background-image: linear-gradient(#ffd770, #ffb700 50%, #ffdf8f);
     border: 1px solid #664900; }
   .inputIncremental.orangeTheme a:after {
-    border-color: transparent transparent white transparent; }
+    border-color: transparent transparent #fff transparent; }
   .inputIncremental.orangeTheme a.decrement:after {
-    border-color: white transparent transparent transparent; }
+    border-color: #fff transparent transparent transparent; }
+
+/*# sourceMappingURL=style.css.map */
