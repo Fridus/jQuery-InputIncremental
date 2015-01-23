@@ -1,7 +1,7 @@
 /*global $*/
 /* jquery.inputIncremental
  *
- * Version 0.0.1 by Florent Detry
+ * Version 0.3.0 by Florent Detry
  *
  * Extends jQuery <http://jquery.com>
  *
@@ -28,12 +28,13 @@ $.fn.inputIncremental = function(options){
       maxVal: null,
       debounce: 1000,
       autocomplete: false,
-      negative: false
+      negative: false,
+      integer: false
     }, options);
 
     // Metadata
     var metadata = $inputs.data();
-    var keys = ['minVal', 'maxVal', 'value', 'debounce'];
+    var keys = ['minVal', 'maxVal', 'value', 'debounce', 'integer'];
     keys.forEach(function(i_key) {
       if(metadata[i_key] !== undefined) {
         params[i_key] = metadata[i_key];
@@ -80,6 +81,24 @@ $.fn.inputIncremental = function(options){
       debounce(value);
     };
 
+    var checkValue = function (val) {
+      var nb = val.replace(',', '.');
+
+      console.log(params.integer);
+
+      if ( params.integer ) {
+        nb = parseInt(nb);
+      } else {
+        nb = parseFloat(nb);
+      }
+
+      if(isNaN(nb)) {
+        nb = params.minVal;
+      }
+
+      return nb;
+    };
+
     $inputs.on('keypress', function(e) {
       if( (e.which < 48 || e.which > 57 ) && e.which !== 8 && e.which !== 0 && e.which !== 44 && e.which !== 46 ) {
         e.preventDefault();
@@ -111,17 +130,7 @@ $.fn.inputIncremental = function(options){
       }
 
       var $input = $inputContainer.find('input'),
-        nb = $input.val().replace(',', '.');
-
-      if ( params.numberType === 'int') {
-        nb = parseInt($input.val());
-      } else {
-        nb = parseFloat($input.val());
-      }
-
-      if(isNaN(nb)) {
-        nb = params.minVal;
-      }
+        nb = checkValue($input.val());
 
       if( $(this).hasClass('increment') ) {
         nb = nb + params.value;
@@ -129,26 +138,20 @@ $.fn.inputIncremental = function(options){
         nb = nb - params.value;
       }
 
-      // arrondi a max 2
+      // round 2
       setInputValue($input, Math.round(nb*100)/100);
       $input.focus();
     });
 
     $inputs.on('focus', function(){
       $inputContainer.addClass('focus');
-      setInputValue(this, this.value.replace(',', '.'));
+      setInputValue(this, checkValue(this.value));
       setTimeout($.proxy(function(){
         this.select();
       },$inputs),10);
     }).on('blur', function(){
-      setInputValue(this, this.value.replace(',', '.'));
       $inputContainer.removeClass('focus');
-      var $this = $(this),
-        value = parseInt($this.val());
-
-      if( isNaN(value) || $this.val() === '' || value < params.minVal) {
-        setInputValue($this, params.minVal);
-      }
+      setInputValue(this, checkValue(this.value));
     });
   });
 };

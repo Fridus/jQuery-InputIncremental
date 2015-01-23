@@ -42,7 +42,8 @@ bower install jquery-inputincremental
 - `maxVal` (default null)
 - `throttle` (default 1000)
 - `autocomplete` (default false)
-- `negative` (default false)
+- `negative`: authorize negative value (default false)
+- `integer`: force integer value (default false)
 
 #### Metadata
 - `data-value`
@@ -51,6 +52,7 @@ bower install jquery-inputincremental
 - `data-throttle`
 - `data-theme`
 - `data-negative`
+- `data-integer`
 
 ## Themes with sass or compass
 
