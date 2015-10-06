@@ -1,6 +1,5 @@
 # jQuery - InputIncremental
-
-***
+[![Bower version](https://img.shields.io/bower/v/jquery-inputincremental.svg?style=flat)](http://bower.io/search/?q=jquery-inputincremental)
 
 You can increment or decrement with buttons or keyboard
 
