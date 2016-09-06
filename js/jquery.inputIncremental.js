@@ -126,10 +126,14 @@ $.fn.inputIncremental = function(options){
       }
     });
 
-    $inputContainer.on('click', 'a', function(e){
+    $inputContainer.on('click', 'a', function (e) {
       e.preventDefault();
 
-      if( $inputContainer.is('.disabled') ) {
+      if (
+        $inputContainer.hasClass('disabled') ||
+        $input.hasClass('disabled') ||
+        $input.is(':disabled')
+      ) {
         return;
       }
 

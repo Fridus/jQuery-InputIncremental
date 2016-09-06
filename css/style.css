@@ -22,6 +22,8 @@
     text-align: right; }
     .inputIncremental > input:focus, .inputIncremental > input.focus {
       outline: none; }
+    .inputIncremental > input:disabled, .inputIncremental > input .disabled {
+      cursor: not-allowed; }
   .inputIncremental .incrementalButtonBox {
     border-left: none;
     border-radius: 0 3px 3px 0;

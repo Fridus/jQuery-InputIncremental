@@ -21,6 +21,9 @@
     text-align: right;
 
     &:focus, &.focus { outline: none; }
+    &:disabled, .disabled {
+      cursor: not-allowed;
+    }
   }
 
   .incrementalButtonBox {
