@@ -382,7 +382,7 @@ $.fn.inputIncremental = function(options){
     $inputContainer.on('click', 'a', function(e){
       e.preventDefault();
 
-      if( $inputContainer.is('.disabled') ) {
+      if ($inputContainer.is('.disabled') || $inputContainer.is(':disabled')) {
         return;
       }
 
