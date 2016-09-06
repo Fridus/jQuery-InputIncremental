@@ -39,7 +39,7 @@ bower install jquery-inputincremental
 - `value`: number incrementation (default 1)
 - `minVal` (default 0)
 - `maxVal` (default null)
-- `throttle` (default 1000)
+- `debounce` (default 1000)
 - `autocomplete` (default false)
 - `negative`: authorize negative value (default false)
 - `integer`: force integer value (default false)
@@ -48,7 +48,7 @@ bower install jquery-inputincremental
 - `data-value`
 - `data-min-val`
 - `data-max-val`
-- `data-throttle`
+- `data-debounce`
 - `data-theme`
 - `data-negative`
 - `data-integer`
